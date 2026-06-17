@@ -1,0 +1,246 @@
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Amiri', 'Noto Naskh Arabic', Georgia, serif;
+    --font-arabic: 'Amiri Quran', 'Amiri', 'Noto Naskh Arabic', serif;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* Brand: gold accent for calligraphy & ornaments */
+    --color-gold: var(--gold);
+    --color-gold-foreground: var(--gold-foreground);
+    --color-gold-muted: var(--gold-muted);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar-background);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+/*
+  ── Al-Munawar brand palette ──────────────────────────────
+  Emerald green (the colour of Islam) + warm gold accents.
+  Tuned for WCAG AA: primary on white ≈ 5:1, foreground ≈ 13:1.
+*/
+:root {
+    /* ── Editorial palette ──────────────────────────────────
+       Warm cream canvas, deep forest-green ink, muted bronze gold.
+       Matches the landing hero hex (#FAF8F5 / #1F3A2B / #A98446). */
+    --background: hsl(36 30% 97%);
+    --foreground: hsl(146 22% 15%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(146 22% 15%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(146 22% 15%);
+    --primary: hsl(146 30% 17%);
+    --primary-foreground: hsl(36 30% 97%);
+    --secondary: hsl(36 22% 93%);
+    --secondary-foreground: hsl(146 30% 17%);
+    --muted: hsl(36 20% 94%);
+    --muted-foreground: hsl(28 6% 45%);
+    --accent: hsl(36 24% 90%);
+    --accent-foreground: hsl(146 30% 17%);
+    --destructive: hsl(0 72% 48%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(30 10% 88%);
+    --input: hsl(30 8% 84%);
+    --ring: hsl(38 41% 47%);
+
+    --gold: hsl(38 41% 47%);
+    --gold-foreground: hsl(0 0% 100%);
+    --gold-muted: hsl(40 45% 91%);
+
+    --chart-1: hsl(160 84% 30%);
+    --chart-2: hsl(173 58% 39%);
+    --chart-3: hsl(38 78% 45%);
+    --chart-4: hsl(142 60% 45%);
+    --chart-5: hsl(199 60% 40%);
+    --radius: 0.625rem;
+
+    --sidebar-background: hsl(160 30% 13%);
+    --sidebar-foreground: hsl(150 20% 88%);
+    --sidebar-primary: hsl(38 78% 50%);
+    --sidebar-primary-foreground: hsl(162 45% 11%);
+    --sidebar-accent: hsl(160 25% 20%);
+    --sidebar-accent-foreground: hsl(150 20% 92%);
+    --sidebar-border: hsl(160 20% 22%);
+    --sidebar-ring: hsl(38 78% 50%);
+}
+
+.dark {
+    --background: hsl(162 36% 7%);
+    --foreground: hsl(150 24% 92%);
+    --card: hsl(162 30% 10%);
+    --card-foreground: hsl(150 24% 92%);
+    --popover: hsl(162 30% 10%);
+    --popover-foreground: hsl(150 24% 92%);
+    --primary: hsl(152 60% 45%);
+    --primary-foreground: hsl(162 45% 8%);
+    --secondary: hsl(160 22% 16%);
+    --secondary-foreground: hsl(150 24% 92%);
+    --muted: hsl(160 20% 14%);
+    --muted-foreground: hsl(150 12% 62%);
+    --accent: hsl(160 22% 18%);
+    --accent-foreground: hsl(150 24% 92%);
+    --destructive: hsl(0 65% 55%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(160 18% 20%);
+    --input: hsl(160 18% 22%);
+    --ring: hsl(152 60% 50%);
+
+    --gold: hsl(42 80% 58%);
+    --gold-foreground: hsl(162 45% 8%);
+    --gold-muted: hsl(42 30% 20%);
+
+    --chart-1: hsl(152 60% 50%);
+    --chart-2: hsl(173 58% 49%);
+    --chart-3: hsl(42 80% 58%);
+    --chart-4: hsl(142 55% 55%);
+    --chart-5: hsl(199 60% 55%);
+
+    --sidebar-background: hsl(162 36% 9%);
+    --sidebar-foreground: hsl(150 20% 85%);
+    --sidebar-primary: hsl(42 80% 58%);
+    --sidebar-primary-foreground: hsl(162 45% 8%);
+    --sidebar-accent: hsl(160 22% 16%);
+    --sidebar-accent-foreground: hsl(150 20% 90%);
+    --sidebar-border: hsl(160 18% 18%);
+    --sidebar-ring: hsl(42 80% 58%);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer utilities {
+    .font-arabic {
+        font-family: var(--font-arabic);
+    }
+
+    .font-display {
+        font-family: var(--font-display);
+    }
+
+    /* Subtle Islamic geometric backdrop — an 8-point star (khatam) tile */
+    .pattern-islamic {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23047857' stroke-opacity='0.06' stroke-width='1'%3E%3Cpath d='M30 4l7 12 13 1-9 10 3 13-14-6-14 6 3-13-9-10 13-1z'/%3E%3Crect x='15' y='15' width='30' height='30' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 60px 60px;
+    }
+
+    /* Gold gradient text for ornamental headings */
+    .text-gold-gradient {
+        background-image: linear-gradient(135deg, hsl(42 82% 52%), hsl(34 72% 38%));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* Gentle floating motion for hero accents */
+    @keyframes float-y {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-12px);
+        }
+    }
+
+    .animate-float {
+        animation: float-y 6s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+        animation: float-y 7.5s ease-in-out infinite;
+        animation-delay: -2s;
+    }
+
+    /* Slow rotation for ornamental marks */
+    @keyframes spin-slow {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-spin-slow {
+        animation: spin-slow 18s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .animate-float,
+        .animate-float-delayed,
+        .animate-spin-slow {
+            animation: none;
+        }
+    }
+}

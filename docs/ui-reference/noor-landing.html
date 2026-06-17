@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Noor - Ramadan Spiritual Guidance</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts: DM Sans and Playfair Display (for that elegant serif feel) -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'noor-cream': '#FFF8F5',
+            'noor-brown': '#3E2B20',
+            'noor-gold': '#F2C94C',
+            'noor-purple': '#8E82B6',
+            'noor-orange': '#F2994A',
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styling">
+    body {
+      background-color: #FFF8F5;
+      color: #3E2B20;
+    }
+    .pill-button {
+      @apply px-6 py-2 rounded-full transition-all duration-300;
+    }
+    .circle-img-container {
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    /* Custom masking for the unique hero shapes */
+    .hero-shape-left {
+      border-radius: 150px 150px 0 150px;
+    }
+    .hero-shape-right {
+      border-radius: 150px 150px 150px 0;
+    }
+    .nav-link {
+      @apply text-sm font-medium hover:opacity-70 transition-opacity;
+    }
+  </style>
+</head>
+<body class="font-sans">
+<!-- BEGIN: MainHeader -->
+<header class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between" data-purpose="header">
+<div class="text-3xl font-bold font-serif" id="logo">Noor</div>
+<nav class="hidden md:flex items-center space-x-10">
+<a class="nav-link" href="#">Home</a>
+<a class="nav-link" href="#">About</a>
+<a class="nav-link" href="#">Prayer Times</a>
+<a class="nav-link" href="#">Zakat</a>
+</nav>
+<button class="bg-noor-brown text-noor-cream pill-button font-medium text-sm">Get Started</button>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="max-w-7xl mx-auto px-6 pt-12 pb-24 relative overflow-hidden" data-purpose="hero-section">
+<!-- Star Icons -->
+<div class="absolute top-0 left-10 text-noor-orange text-2xl">★</div>
+<div class="absolute top-10 right-1/4 text-noor-gold text-4xl opacity-50">🌙</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<!-- Left: Text & Portrait -->
+<div class="flex flex-col space-y-8">
+<p class="text-sm opacity-80 max-w-[200px]">A month of faith and reflection where every day of Ramadan feels meaningful and blessed.</p>
+<div class="w-64 h-80 bg-[#F5D5B8] hero-shape-left overflow-hidden">
+<img alt="Man Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaZsc9RMnHLn8rf6t_Zw90lbquSgcKxvwrfT01wxrRle2FWEvlQcx_cUh5wmB5CpJhO6CVIJNuLBfhWxDFvuFD8Cb4ogME5-tTQ5F3MUYx-TK8E9Rq9GNZIsSWeovcDcSnegAzxIGYzhwrRLs2sOHBU0PrAPhV54z98fdws3omNegK9VM5Lk4JNIVV_0iRwiWxq-k1WnCnTHd-BYlHNVYNsC1pIVfqdNbuC4Lzq5C-ZKK_uBejqHh2flwYlGEt6Pa-mUqwm6DDVOY"/>
+</div>
+</div>
+<!-- Center: Title -->
+<div class="text-center flex flex-col items-center">
+<h1 class="text-6xl md:text-7xl font-serif leading-tight mb-8">Every Night Glows with Mercy</h1>
+<div class="w-16 h-16 bg-noor-brown rounded-full flex items-center justify-center text-noor-cream transform -rotate-45 cursor-pointer">
+<svg class="h-8 w-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Right: Mosque & Decor -->
+<div class="flex flex-col items-end space-y-8">
+<div class="w-64 h-96 bg-[#D8E6F0] hero-shape-right overflow-hidden">
+<img alt="Mosque" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWqpKuwRUnl7HQJq3-PQukiKUynGYpkuewrAJMyQjgvkL4A1zCrfySH8Nl0QNhAvxafRGuSecc1l2V0K9YyVtLCw3Hv_3o6Oofl3tzf6jDR48kAwfPXgwXgqZ9T-66SO9MROhkd8WsKj8drRQ7sIvPD8PW-dj3XAeJyc7u1e2az81QEqIQOZl6ZsOgEDVIL7zevFB8BBGoeBTy6sTWoSvKPhx1r7Qo6bwXWsO-v_SwrxIWbjiBgzS85UZwZdKSvpmr-WRxN1kHibI"/>
+</div>
+<div class="text-noor-orange text-xl mr-20">★</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: LogoBar -->
+<section class="max-w-7xl mx-auto px-6 py-12 border-t border-b border-[#EEDCC5]" data-purpose="partner-logos">
+<div class="flex flex-wrap justify-between items-center gap-8 opacity-60 grayscale">
+<span class="text-2xl font-bold">rivago</span>
+<span class="text-2xl font-bold">ANOZ</span>
+<span class="text-2xl font-bold">Almarai</span>
+<span class="text-2xl font-bold">Hazama</span>
+<span class="text-2xl font-bold">Salem</span>
+<span class="text-2xl font-bold">FARAH</span>
+</div>
+</section>
+<!-- END: LogoBar -->
+<!-- BEGIN: PreciousSection -->
+<section class="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-16" data-purpose="precious-ramadan">
+<div class="flex-1 space-y-8">
+<h2 class="text-5xl font-serif">Every Second of Ramadan is Precious</h2>
+<p class="text-noor-brown opacity-80 max-w-md">We celebrate Ramadan with faith, beauty, and purpose through inspired design and meaningful content for a season of reflection and light.</p>
+<button class="bg-noor-brown text-noor-cream pill-button px-8">Explore More</button>
+<div class="text-noor-orange text-2xl pt-4">★</div>
+</div>
+<div class="flex-1 relative flex justify-center">
+<div class="absolute top-0 right-1/4 text-noor-gold text-3xl">🌙</div>
+<div class="w-80 h-80 rounded-full overflow-hidden border-8 border-white shadow-xl">
+<img alt="Smiling Man" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD186Q0TLUUfuOjcUe8FQ7ANjKk34D-juBpAPCzIayN9I-U4aE672lGCyRtD6Vfje71Gb2Vbo9gdS0clX1uRITCpGRkh3khypIUIWSicqJAjRg7TbvLY09QTpz5RgmfA1110yesIupH6xESrsJ-4YnBv3RCPc8g_LtT7ik4G5LqCC0YDeHipvo_7eFJAWHBnaDo7tS4CMkgeHbxbpNRVZ3RPLJEt9fGkpVevb8mXJeKozMi1FBN4Arl8yI2Hp6RE2OiOGfy_ieWj-M"/>
+</div>
+<!-- Stats Circle -->
+<div class="absolute bottom-0 right-0 w-44 h-44 bg-noor-gold rounded-full flex flex-col items-center justify-center text-center p-4">
+<p class="text-xs uppercase tracking-widest font-medium">Prayers Shared</p>
+<p class="text-3xl font-bold">1,000+</p>
+</div>
+<div class="absolute top-10 right-0 flex flex-col space-y-2">
+<span class="border border-noor-brown rounded-full px-3 py-1 text-[10px]">Reflection</span>
+<span class="border border-noor-brown rounded-full px-3 py-1 text-[10px]">Community</span>
+</div>
+</div>
+</section>
+<!-- END: PreciousSection -->
+<!-- BEGIN: EssentialsSection -->
+<section class="max-w-7xl mx-auto px-6 py-24" data-purpose="ramadan-essentials">
+<div class="flex justify-between items-end mb-12">
+<h2 class="text-5xl font-serif">Ramadan Essentials</h2>
+<div class="flex space-x-2">
+<button class="w-10 h-10 border border-noor-brown rounded-full flex items-center justify-center hover:bg-noor-brown hover:text-white transition-colors">←</button>
+<button class="w-10 h-10 bg-noor-brown text-white rounded-full flex items-center justify-center">→</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-full aspect-square rounded-full overflow-hidden mb-6">
+<img alt="Duas &amp; Prayers" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnK8UTKEFuGTnECLIWzqfDE9CbQA7Hlh0uon8hWhxMEEvT6qNqMe4Jpr8ZQZxMp7PnqTXG_vfnQ8oZhFpBUQJJD60luej0nNczpe_D1dIJzl3C5MPjTCiZsd5oD2eEDOp30jdREE_-cnw9lNdcO-b_Ad3NhPITNrI8-lCK7kGgHv73KJQy_6si6YgAn-E9F443yW6OqHUs1aA1wOsEffRsKHRZ8n4D7ShyPhcafJ1wReXN9N6uPMLgcoPI6Ov6mibsUaSa3IOBXWI"/>
+</div>
+<h4 class="font-bold mb-2">Duas &amp; Prayers</h4>
+<p class="text-sm opacity-70">Short, powerful supplications for every day of Ramadan.</p>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-full aspect-square rounded-full overflow-hidden mb-6">
+<img alt="Iftar Recipes" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANVv8a5FbZCbfPErvyTxIgnEABHZjbCiYjunNzuYjgQo5gWbN5E0hLy11Do1Pq3D5Hb7Ow6fLPmmUmuFXgn9kD4eMWB2Bz2xJvTZXyTMv65yVSmSucR5g3Ha46-e1jlfqaQ_i30FNVx0UbHm04NSCnfHbgnAwK2X6P8BYHE-wnY71duj13UwETE-b2IzshzKBEUsAVH0oSkKEL4YF-Brld2ESFFEoPwasWgfxcRiFQKrnrJlh4dZc6oVx791IjSamtxAaPAHWuzqA"/>
+</div>
+<h4 class="font-bold mb-2">Iftar Recipes</h4>
+<p class="text-sm opacity-70">Healthy and delicious meals for Iftar &amp; Suhoor.</p>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-full aspect-square rounded-full overflow-hidden mb-6">
+<img alt="Charity &amp; Zakat" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk1wERZSzJkvxmY1CFlwVE5im08NZ-3-Nem6xbh6GhzDZ2ao876USUnFBU3l-7PvK03mAtFZ1xIUvt8a99QfVwgz6TFjFzqwUdjKu9ttmTLtptyLn7daxiDpniNvWiekLCo7ioh-fXOs_SCAiw9wEyWY6Ko1HFTHDTvSnJYJ2XysFd-ELNuu-Bnk73uF3rD_H6Y5vGOC2QLApuVD1X23i3wmL4_2X6j8BdFmBm6xU-GZ3YFdZKCg5tU4fPJZxZayHpPQ9puQs7tiE"/>
+</div>
+<h4 class="font-bold mb-2">Charity &amp; Zakat</h4>
+<p class="text-sm opacity-70">Support people in need and give with purpose</p>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-full aspect-square rounded-full overflow-hidden mb-6">
+<img alt="Ramadan Decorations" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnVG1Ir-aTUmzyr7SyYP_cLrlbz_ZhKuU7puG--yuIBxFdf56YYvSc0e0Y_dN7OobYIFJHkj6NeEXWTOAeEwhIUxkbjfBEuzRVSYpPtB2V2yaske7Alb8DHcM8TD1rOERRqzcNsGJbXMqBRUgzJiWd9-eDaAlGcaqNaWbemn8guE_s6LBO_HV6H1eHYGehSevGyUbEte0U_oVMJ8a_UC2FkqMZE29jGxj-VMeCMgnKp_zb8oTpbzDuw1KCCzHlqLV_AZHQ3mAuBzE"/>
+</div>
+<h4 class="font-bold mb-2">Ramadan Decorations</h4>
+<p class="text-sm opacity-70">Lanterns, lights, and home décor for a soulful atmosphere.</p>
+</div>
+</div>
+<div class="flex justify-center mt-12">
+<button class="border border-noor-brown pill-button px-10 text-sm font-medium">View More</button>
+</div>
+</section>
+<!-- END: EssentialsSection -->
+<!-- BEGIN: CommunityTestimonial -->
+<section class="max-w-7xl mx-auto px-6 py-24" data-purpose="testimonials">
+<div class="flex justify-between items-start mb-16">
+<h2 class="text-5xl font-serif max-w-sm">What Our Community Says</h2>
+<button class="bg-noor-brown text-noor-white text-white pill-button px-8">Discover more</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="relative flex justify-center">
+<div class="text-noor-gold text-4xl absolute -top-10 left-0">🌙</div>
+<div class="w-80 h-80 bg-noor-orange rounded-full overflow-hidden">
+<img alt="Main Testimonial" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR5FoqErPdmbsuEy75tqP6NEcAHxnELWUtw1a_ol43UJF_PJ-npBWBDQcuQbbs3UeKISTIhcQ52mSZ2FyDqDHrJ_jcwA6VVprtlx4G_pUAnUW_DO2DFZAO8An9U1HQZ9DeSiapY51DYOYwN2rJIG0KUrlb_DllDYQ_MS-y8wA7Z5P3a3QxC3lMc9FTG1zFvj7AA2gIhidLgbDr9EmoONLCAzQ1vCZrlhmGw0B9h5QUy26I1C0DlPSUDYCGYfpTyVmcxN8htna4o5o"/>
+</div>
+<div class="absolute -bottom-8 left-0 max-w-[200px] text-xs opacity-70 italic">
+          Authentic voices from people who choose to celebrate Ramadan with us and make it a meaningful part of their daily journey of faith and reflection.
+        </div>
+</div>
+<div class="space-y-8">
+<div class="text-noor-orange text-3xl">★</div>
+<p class="text-xl leading-relaxed">"The thoughtfully curated content, timely reminders, and beautifully crafted design helped me stay consistently focused on faith, reflection, and personal growth throughout every day of Ramadan."</p>
+<div class="flex items-center space-x-4">
+<div class="flex -space-x-4">
+<img alt="User 1" class="w-12 h-12 rounded-full border-2 border-noor-cream" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj3wThY_XKWnEnsHBTTsPJZpT7-n5-eeQJ53HLhFjcbavdpvKwLvVDroDY3CbjzBNJzsl7NX39RZf146YMfji4jsH4e1cyVjrclUjJRMLMapTa8mDR1y2OGlMHuR-9WK3L_Aaz479zloDyrvZYnXiCWwkodutsaKjZBNmnwuv7Y4_UdOn4hx3T8IN1VUfeQfj5CJtqnYC33ORcfpBJO78obe0_tPcCHnhewYD65N3zz_Op6-qEfbMYbloSqt5ksrxpHIC6J1sRMhg"/>
+<img alt="User 2" class="w-12 h-12 rounded-full border-2 border-noor-cream" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjUdr5l0b4cm9-lHnhYjKoEGNsCu21zQ22S15qALqII-Ansu-obFuq054REPJtn0kP0P0TL0yeAP-ENAvpcWl9ACf7JTq1MNmGw_593g009k1t5kqRM5eHeicxIXJFlR3zMzckfR-SFoia7RQSkImtYWR_FDCGgavHY1BPMIC4q-_dhXcNWAUjtwbc37i0Zyur1QuKeTe_wbZkEY5byGDjLeYxz6YW_sRK8SYDo8Tt_eZBmrzUGoIcux8F8IwrQSQaMpsfDZNWKeM"/>
+<img alt="User 3" class="w-12 h-12 rounded-full border-2 border-noor-cream" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYuNlKBaOjcd0j9702WokqDEjMXI01eb-yBfuRavxqyZTscNJ7ZZ4URFlyuPQsepYGeZE_pu8IAX2P_0ZXVrPGtDLhlBsF2BQGXvZ4XLK5oY9A7N4KmJCPchgVmXpM4baYJHfkoCTSznCD1hSEPhlReJC8Unhci1Q0hOhsef_Okd54vUj4QJwBmoDZnJHEdKqHRc7XlvZ9va6CU_AP0qImbvVSCE_GMQ_r3MJgvfmKY4n5Eg4Qg6dCN4diJFncJ_SOm6y7VINTdxA"/>
+</div>
+<div>
+<p class="font-bold">Ayaan Malik</p>
+<p class="text-xs opacity-60">Business man</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CommunityTestimonial -->
+<!-- BEGIN: SpiritualGuidance -->
+<section class="max-w-7xl mx-auto px-6 py-24" data-purpose="spiritual-guidance">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-serif mb-4">Daily Spiritual Guidance</h2>
+<p class="opacity-70 max-w-lg mx-auto text-sm">Stay connected with your faith through daily prayer times, inspiring Quranic verses, and carefully guided meal schedules throughout Ramadan.</p>
+</div>
+<!-- Prayer Times Card -->
+<div class="bg-noor-purple rounded-[4rem] p-12 text-white relative mb-12">
+<div class="absolute top-10 left-10 text-noor-gold text-4xl">🌙</div>
+<div class="absolute top-10 right-20 text-white opacity-40 text-2xl">★</div>
+<div class="text-center mb-12">
+<div class="flex items-center justify-center space-x-2 text-sm opacity-90 mb-2">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Prayer Times</span>
+</div>
+<div class="flex items-center justify-center space-x-1 text-xs opacity-70">
+<svg class="h-3 w-3" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Mecca, Saudi Arabia</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<div class="bg-white/10 rounded-full px-6 py-4 flex justify-between items-center backdrop-blur-sm">
+<span class="text-xs opacity-70">Fajr</span>
+<span class="font-bold">05:51</span>
+</div>
+<div class="bg-white/10 rounded-full px-6 py-4 flex justify-between items-center">
+<span class="text-xs opacity-70">Dhuhr</span>
+<span class="font-bold">12:35</span>
+</div>
+<div class="bg-white/10 rounded-full px-6 py-4 flex justify-between items-center">
+<span class="text-xs opacity-70">Asr</span>
+<span class="font-bold">15:50</span>
+</div>
+<div class="bg-white/10 rounded-full px-6 py-4 flex justify-between items-center">
+<span class="text-xs opacity-70">Magrib</span>
+<span class="font-bold">18:16</span>
+</div>
+<div class="bg-white/10 rounded-full px-6 py-4 flex justify-between items-center">
+<span class="text-xs opacity-70">Esha</span>
+<span class="font-bold">16:19</span>
+</div>
+</div>
+</div>
+<!-- Quran Quote & Iftar Schedule -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+<div class="space-y-6">
+<blockquote class="text-3xl font-serif italic">
+          "The month of Ramadan in which was revealed the Quran, a guidance for mankind."
+        </blockquote>
+<p class="text-sm opacity-60">— Surah Al-Baqarah, Ayah 185</p>
+</div>
+<div class="space-y-6">
+<div class="flex items-center space-x-2 text-sm">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Iftar &amp; Suhoor Times</span>
+</div>
+<div class="space-y-3">
+<div class="bg-noor-brown text-white rounded-full p-4 flex justify-between items-center">
+<span class="text-sm opacity-80">Suhoor Ends</span>
+<span class="text-xl font-bold">05:51</span>
+</div>
+<div class="bg-white rounded-full p-4 flex justify-between items-center border border-[#EEDCC5]">
+<span class="text-sm opacity-80">Iftar Time</span>
+<span class="text-xl font-bold">12:35</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SpiritualGuidance -->
+<!-- BEGIN: CTASection -->
+<section class="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-16" data-purpose="cta-section">
+<div class="flex-1 space-y-8">
+<h2 class="text-5xl font-serif leading-tight">Make This Ramadan More Meaningful</h2>
+<p class="text-sm opacity-70 max-w-sm">Discover meaningful Ramadan essentials that uplift your home and heart.</p>
+<button class="bg-noor-brown text-white pill-button px-8">Join Our Community</button>
+<div class="text-noor-orange text-3xl">★</div>
+<!-- Stats Circle -->
+<div class="w-48 h-48 bg-noor-gold rounded-full flex flex-col items-center justify-center text-center p-6 shadow-lg">
+<p class="text-[10px] uppercase font-bold mb-1">Member's in our community</p>
+<p class="text-4xl font-bold">45,000+</p>
+</div>
+</div>
+<div class="flex-1 flex gap-6 items-end">
+<div class="w-1/2 h-[450px] bg-noor-orange rounded-full overflow-hidden">
+<img alt="Smiling Member" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG-pz2fJOagNhlR3agmbQHQY1f0Ci6QgKwKZpsPQCxp7ppJUfXmvNVRwxHaQOzJXTYA6tGdpu--cOqOERfFjOvixLzcaSKD1g59WSBrq6DP5WmDj5CEF-E153qYxO5qQdxc42SazveMDUuSvzHeciwjqwHWoPT0tOsfFOUNTsaDgMH728EEfAPMQs25wYQJl6BUJHu7YEcLEHHEvToF2PsuFHUuyOGz85Jsjl5W_RQ0M9PcixLMh2irCHVre9NpUQlyBoyWmR23zw"/>
+</div>
+<div class="w-1/2 h-[550px] rounded-t-full overflow-hidden">
+<img alt="Mosque Architecture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBovnsZGHyMPSXp2WN_oxfXgCvMw6OBmUn8xqGn5km45WBvqTC0fTLEyM4h0pjE_H6Jb9sR_PKpoSmwJii_WeqeLPhRdEVqZrx5-6c9stFBfCifckd4-U8IO1irynq0ls4ikSzXqcDA0np1AWt-HgD_bWpsvkRACCyS_d7hPb1e6oyfwbZzY1QlEfSc6lBg3nB7pAsJOkWGwi6lhDYVzWJLVLqrXfzE6eZTzMqvvEUz-9hNhRD1hZdwbTqW-q49hysMLHnOJqQiIiQ"/>
+</div>
+</div>
+</section>
+<!-- END: CTASection -->
+<!-- BEGIN: Footer -->
+<footer class="bg-noor-brown text-[#DCC7B9] py-20 mt-12" data-purpose="footer">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<!-- Brand -->
+<div class="space-y-6">
+<div class="text-3xl font-bold font-serif text-white">Noor</div>
+<p class="text-sm leading-relaxed max-w-xs">Delivering compassionate care with excellence. We're here for you at every step.</p>
+<div class="flex space-x-4">
+<a class="hover:text-white" href="#"><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
+<a class="hover:text-white" href="#"><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a>
+<a class="hover:text-white" href="#"><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+<a class="hover:text-white" href="#"><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.342-4.917 2.342v-4.684z"></path></svg></a>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="space-y-6">
+<h5 class="text-white font-bold">Quick Links</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:underline" href="#">Home</a></li>
+<li><a class="hover:underline" href="#">About Us</a></li>
+<li><a class="hover:underline" href="#">Ramadan Essentials</a></li>
+<li><a class="hover:underline" href="#">Our Story</a></li>
+<li><a class="hover:underline" href="#">Community</a></li>
+</ul>
+</div>
+<!-- Resources -->
+<div class="space-y-6">
+<h5 class="text-white font-bold">Resources</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:underline" href="#">Daily Duas</a></li>
+<li><a class="hover:underline" href="#">Ramadan Tips</a></li>
+<li><a class="hover:underline" href="#">Prayer Times</a></li>
+<li><a class="hover:underline" href="#">Blog</a></li>
+<li><a class="hover:underline" href="#">FAQs</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div class="space-y-6">
+<h5 class="text-white font-bold">Contact Us</h5>
+<ul class="space-y-4 text-sm">
+<li>123 Noor Avenue</li>
+<li>(555) 123-4567</li>
+<li>hello@noor.com</li>
+</ul>
+</div>
+</div>
+<!-- Copyright -->
+<div class="border-t border-white/10 pt-8 flex flex-col md:row items-center justify-between text-xs opacity-60">
+<p>© 2026 Noor. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:underline" href="#">Privacy policy</a>
+<a class="hover:underline" href="#">Terms of use</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>
