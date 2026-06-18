@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\GalleryAlbumController;
+use App\Http\Controllers\Admin\GalleryPhotoController;
+use App\Http\Controllers\Admin\ProgramController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -32,6 +36,14 @@ Route::get('/donasi', fn () => Inertia::render('public/donasi/index'))->name('do
 */
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', fn () => Inertia::render('dashboard'))->name('dashboard');
+});
+
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::resource('programs', ProgramController::class)->except('show');
+    Route::resource('articles', ArticleController::class)->except('show');
+    Route::resource('gallery', GalleryAlbumController::class);
+    Route::post('gallery/{album}/photos', [GalleryPhotoController::class, 'store'])->name('gallery.photos.store');
+    Route::delete('gallery/{album}/photos/{photo}', [GalleryPhotoController::class, 'destroy'])->name('gallery.photos.destroy');
 });
 
 require __DIR__.'/settings.php';
