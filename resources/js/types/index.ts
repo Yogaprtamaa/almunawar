@@ -21,11 +21,23 @@ export interface NavItem {
     isActive?: boolean;
 }
 
+export interface Tenant {
+    brandName: string;
+    brandShort: string;
+    tagline: string;
+    addressCity: string;
+    address: string;
+    phone: string;
+    email: string;
+    website: string;
+}
+
 export interface SharedData {
     name: string;
     quote: { message: string; author: string };
     auth: Auth;
     flash: { success?: string; error?: string };
+    tenant: Tenant;
     [key: string]: unknown;
 }
 

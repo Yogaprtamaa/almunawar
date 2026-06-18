@@ -1,12 +1,12 @@
 import { PageHero } from '@/components/public/page-hero';
-import { cn } from '@/lib/utils';
+import { cn, storageUrl } from '@/lib/utils';
 import PublicLayout from '@/layouts/public-layout';
-import { albums } from '@/lib/mock-data';
+import { type GalleryAlbum } from '@/types';
 import { Head } from '@inertiajs/react';
 import { Images, Play } from 'lucide-react';
 import { useState } from 'react';
 
-export default function Galeri() {
+export default function Galeri({ albums }: { albums: GalleryAlbum[] }) {
     const [filter, setFilter] = useState<'Foto' | 'Video'>('Foto');
 
     return (
@@ -38,46 +38,42 @@ export default function Galeri() {
                 </div>
 
                 {filter === 'Foto' ? (
-                    <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        {albums.map((album) => (
-                            <button
-                                key={album.slug}
-                                className="group relative aspect-[4/3] cursor-pointer overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A98446]"
-                            >
-                                <img
-                                    src={album.cover}
-                                    alt={album.title}
-                                    loading="lazy"
-                                    className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                                />
-                                <span className="absolute inset-0 bg-gradient-to-t from-[#0F1A13]/90 via-[#0F1A13]/20 to-transparent" />
-                                <span className="absolute inset-x-0 bottom-0 p-5 text-[#FAF8F5]">
-                                    <span className="block font-serif text-lg font-medium">{album.title}</span>
-                                    <span className="mt-1 inline-flex items-center gap-1.5 text-xs text-[#FAF8F5]/80">
-                                        <Images className="size-3.5" /> {album.count} foto
-                                    </span>
-                                </span>
-                            </button>
-                        ))}
-                    </div>
-                ) : (
-                    <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        {albums.slice(0, 3).map((album) => (
-                            <div key={album.slug} className="overflow-hidden border border-stone-200 bg-white">
-                                <div className="relative aspect-video">
-                                    <img src={album.cover} alt={album.title} loading="lazy" className="size-full object-cover grayscale" />
-                                    <span className="absolute inset-0 flex items-center justify-center bg-[#0F1A13]/40">
-                                        <span className="flex size-14 items-center justify-center rounded-full bg-[#A98446] text-white shadow-lg">
-                                            <Play className="size-6 translate-x-0.5" />
+                    albums.length === 0 ? (
+                        <p className="mt-16 text-center text-muted-foreground">Belum ada album foto.</p>
+                    ) : (
+                        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                            {albums.map((album) => {
+                                const cover = storageUrl(album.cover_image);
+                                return (
+                                    <div
+                                        key={album.slug}
+                                        className="group relative aspect-[4/3] cursor-pointer overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A98446]"
+                                    >
+                                        {cover ? (
+                                            <img
+                                                src={cover}
+                                                alt={album.title}
+                                                loading="lazy"
+                                                className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                                            />
+                                        ) : (
+                                            <div className="size-full bg-gradient-to-br from-[#1F3A2B]/20 to-[#A98446]/10" />
+                                        )}
+                                        <span className="absolute inset-0 bg-gradient-to-t from-[#0F1A13]/90 via-[#0F1A13]/20 to-transparent" />
+                                        <span className="absolute inset-x-0 bottom-0 p-5 text-[#FAF8F5]">
+                                            <span className="block font-serif text-lg font-medium">{album.title}</span>
+                                            <span className="mt-1 inline-flex items-center gap-1.5 text-xs text-[#FAF8F5]/80">
+                                                <Images className="size-3.5" /> {album.photos_count ?? 0} foto
+                                            </span>
                                         </span>
-                                    </span>
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="font-serif font-medium text-[#0F1A13]">{album.title}</h3>
-                                    <p className="mt-1 text-xs text-stone-500">Video · YouTube</p>
-                                </div>
-                            </div>
-                        ))}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )
+                ) : (
+                    <div className="mt-16 text-center text-muted-foreground">
+                        <p>Konten video belum tersedia.</p>
                     </div>
                 )}
             </section>

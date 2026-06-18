@@ -1,28 +1,38 @@
 import { ArticleCard } from '@/components/public/article-card';
 import { PageHero } from '@/components/public/page-hero';
 import { Button } from '@/components/ui/button';
+import { formatDate, storageUrl } from '@/lib/utils';
 import PublicLayout from '@/layouts/public-layout';
-import { articles } from '@/lib/mock-data';
+import { type Article } from '@/types';
 import { Head } from '@inertiajs/react';
 import { CalendarDays, Facebook, Link2, Twitter, User } from 'lucide-react';
 
-export default function BeritaShow({ slug }: { slug: string }) {
-    const article = articles.find((a) => a.slug === slug) ?? articles[0];
-    const related = articles.filter((a) => a.slug !== article.slug).slice(0, 3);
+export default function BeritaShow({ article, related }: { article: Article; related: Article[] }) {
+    const image = storageUrl(article.image);
+
+    const handleCopyLink = () => {
+        navigator.clipboard.writeText(window.location.href);
+    };
 
     return (
         <PublicLayout>
             <Head title={article.title} />
             <PageHero
                 title={article.title}
-                crumbs={[{ label: 'Beranda', href: '/' }, { label: 'Berita', href: '/berita' }, { label: article.category }]}
+                crumbs={[
+                    { label: 'Beranda', href: '/' },
+                    { label: 'Berita', href: '/berita' },
+                    { label: article.category },
+                ]}
             />
 
             <article className="mx-auto max-w-3xl px-6 py-16">
                 <div className="flex flex-wrap items-center gap-4 text-sm text-stone-500">
-                    <span className="bg-[#A98446]/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#A98446]">{article.category}</span>
+                    <span className="bg-[#A98446]/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#A98446]">
+                        {article.category}
+                    </span>
                     <span className="flex items-center gap-1.5">
-                        <CalendarDays className="size-4" /> {article.date}
+                        <CalendarDays className="size-4" /> {formatDate(article.published_at)}
                     </span>
                     <span className="flex items-center gap-1.5">
                         <User className="size-4" /> {article.author}
@@ -30,25 +40,40 @@ export default function BeritaShow({ slug }: { slug: string }) {
                 </div>
 
                 <div className="mt-6 border border-stone-200 bg-white p-3">
-                    <img src={article.image} alt={article.title} className="aspect-[16/9] w-full object-cover grayscale" />
+                    {image ? (
+                        <img
+                            src={image}
+                            alt={article.title}
+                            className="aspect-[16/9] w-full object-cover grayscale"
+                        />
+                    ) : (
+                        <div className="aspect-[16/9] w-full bg-gradient-to-br from-stone-200 to-stone-100" />
+                    )}
                 </div>
 
                 <div className="mt-8 max-w-none leading-relaxed text-stone-700">
                     <p className="text-lg">{article.excerpt}</p>
-                    <p className="mt-4">
-                        Alhamdulillah, segala puji bagi Allah ﷻ atas terselenggaranya kegiatan ini. Acara berlangsung dengan khidmat dan
-                        dihadiri oleh segenap keluarga besar yayasan, para wali santri, serta masyarakat sekitar.
-                    </p>
-                    <p className="mt-4">
-                        Kegiatan ini merupakan wujud nyata komitmen Yayasan Al-Munawar dalam membina umat dan menebar manfaat. Semoga Allah ﷻ
-                        senantiasa memberikan keberkahan dan kemudahan dalam setiap langkah kebaikan.
-                    </p>
+                    {article.body ? (
+                        <p className="mt-4 whitespace-pre-line">{article.body}</p>
+                    ) : (
+                        <>
+                            <p className="mt-4">
+                                Alhamdulillah, segala puji bagi Allah ﷻ atas terselenggaranya kegiatan ini. Acara
+                                berlangsung dengan khidmat dan dihadiri oleh segenap keluarga besar yayasan, para wali
+                                santri, serta masyarakat sekitar.
+                            </p>
+                            <p className="mt-4">
+                                Kegiatan ini merupakan wujud nyata komitmen Yayasan Al-Munawwar dalam membina umat dan
+                                menebar manfaat. Semoga Allah ﷻ senantiasa memberikan keberkahan dan kemudahan dalam
+                                setiap langkah kebaikan.
+                            </p>
+                        </>
+                    )}
                     <blockquote className="mt-6 border-l-2 border-[#A98446] bg-[#FAF8F5] p-4 font-arabic text-xl not-italic text-[#1F3A2B]">
                         وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًۭا
                     </blockquote>
                 </div>
 
-                {/* share */}
                 <div className="mt-10 flex items-center gap-3 border-t border-stone-200 pt-6">
                     <span className="text-sm font-semibold text-[#0F1A13]">Bagikan:</span>
                     <Button variant="outline" size="icon" aria-label="Bagikan ke WhatsApp">
@@ -62,20 +87,22 @@ export default function BeritaShow({ slug }: { slug: string }) {
                     <Button variant="outline" size="icon" aria-label="Bagikan ke Twitter">
                         <Twitter className="size-4" />
                     </Button>
-                    <Button variant="outline" size="icon" aria-label="Salin tautan">
+                    <Button variant="outline" size="icon" aria-label="Salin tautan" onClick={handleCopyLink}>
                         <Link2 className="size-4" />
                     </Button>
                 </div>
             </article>
 
-            <section className="mx-auto max-w-7xl px-6 pb-16">
-                <h2 className="font-serif text-2xl font-light text-[#0F1A13]">Berita Terkait</h2>
-                <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {related.map((a) => (
-                        <ArticleCard key={a.slug} article={a} />
-                    ))}
-                </div>
-            </section>
+            {related.length > 0 && (
+                <section className="mx-auto max-w-7xl px-6 pb-16">
+                    <h2 className="font-serif text-2xl font-light text-[#0F1A13]">Berita Terkait</h2>
+                    <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {related.map((a) => (
+                            <ArticleCard key={a.slug} article={a} />
+                        ))}
+                    </div>
+                </section>
+            )}
         </PublicLayout>
     );
 }

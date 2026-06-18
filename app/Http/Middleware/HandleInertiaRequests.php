@@ -49,6 +49,16 @@ class HandleInertiaRequests extends Middleware
                 'success' => fn () => $request->session()->get('success'),
                 'error'   => fn () => $request->session()->get('error'),
             ],
+            'tenant' => [
+                'brandName'   => 'Yayasan Islam Al-Munawwar',
+                'brandShort'  => 'Al-Munawwar',
+                'tagline'     => 'Pendidikan Berkarakter, Prestasi Unggul',
+                'addressCity' => 'Tulungagung, Jawa Timur',
+                'address'     => 'Ds. Jengglungharjo, Kec. Tanggunggunung, Kab. Tulungagung',
+                'phone'       => '0896-3954-5861',
+                'email'       => 'yayasanpendidikanislamalmunaww@gmail.com',
+                'website'     => 'al-munawwar.or.id',
+            ],
         ]);
     }
 }

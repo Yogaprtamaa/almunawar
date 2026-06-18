@@ -3,13 +3,16 @@ import { PageHero } from '@/components/public/page-hero';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import PublicLayout from '@/layouts/public-layout';
-import { articles } from '@/lib/mock-data';
+import { type Article } from '@/types';
 import { Head } from '@inertiajs/react';
 import { Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
-export default function BeritaIndex() {
-    const categories = useMemo(() => ['Semua', ...Array.from(new Set(articles.map((a) => a.category)))], []);
+export default function BeritaIndex({ articles }: { articles: Article[] }) {
+    const categories = useMemo(
+        () => ['Semua', ...Array.from(new Set(articles.map((a) => a.category)))],
+        [articles],
+    );
     const [active, setActive] = useState('Semua');
     const [query, setQuery] = useState('');
 
@@ -66,7 +69,11 @@ export default function BeritaIndex() {
                         ))}
                     </div>
                 ) : (
-                    <p className="mt-16 text-center text-muted-foreground">Tidak ada berita yang cocok dengan pencarian Anda.</p>
+                    <p className="mt-16 text-center text-muted-foreground">
+                        {articles.length === 0
+                            ? 'Belum ada artikel yang dipublikasikan.'
+                            : 'Tidak ada berita yang cocok dengan pencarian Anda.'}
+                    </p>
                 )}
             </section>
         </PublicLayout>

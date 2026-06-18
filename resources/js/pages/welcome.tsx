@@ -3,16 +3,16 @@ import { Carousel } from '@/components/public/carousel';
 import { Reveal } from '@/components/public/reveal';
 import { Button } from '@/components/ui/button';
 import { useReveal } from '@/hooks/use-reveal';
+import { formatRupiah, storageUrl } from '@/lib/utils';
 import PublicLayout from '@/layouts/public-layout';
-import { donationProgress, formatRupiah, programs, stats, tenant } from '@/lib/mock-data';
-import { Head, Link } from '@inertiajs/react';
+import { donationProgress, stats } from '@/lib/mock-data';
+import { type Program, type SharedData } from '@/types';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { ArrowRight, BookOpen, Clock, HandHeart, Heart, MapPin, Quote, ShieldCheck, Sparkles } from 'lucide-react';
 
 const heroPortrait = 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=900&q=80';
 const heroMosque = 'https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=700&q=80';
 const ctaImage = 'https://images.unsplash.com/photo-1591902916744-91b0e1f0b5a4?w=900&q=80';
-
-const essentials = programs.slice(0, 4);
 
 const prayerTimes = [
     { label: 'Subuh', time: '04:38' },
@@ -52,7 +52,9 @@ const testimonials = [
 
 const fundedPercent = Math.round((donationProgress.raised / donationProgress.target) * 100);
 
-export default function Beranda() {
+export default function Beranda({ featuredPrograms }: { featuredPrograms: Program[] }) {
+    const { tenant } = usePage<SharedData>().props;
+
     return (
         <PublicLayout>
             <Head title="Beranda - Rumah Generasi Qur'ani" />
@@ -179,18 +181,25 @@ export default function Beranda() {
 
                     <Reveal delay={100}>
                         <Carousel itemClassName="basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4" autoPlayMs={6000}>
-                            {essentials.map((program) => (
-                                <div key={program.slug} className="h-full px-3">
-                                    <Link href={`/program/${program.slug}`} className="group block bg-white border border-stone-200 p-4 h-full transition-all duration-300 hover:border-stone-400">
-                                        <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 mb-6">
-                                            <img src={program.image} alt={program.title} className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" />
-                                        </div>
-                                        <span className="text-[10px] font-semibold tracking-widest text-[#A98446] uppercase block mb-2">{program.category}</span>
-                                        <h3 className="font-serif text-lg font-medium text-[#0F1A13] mb-3 group-hover:text-[#1F3A2B] transition-colors">{program.title}</h3>
-                                        <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed">{program.excerpt}</p>
-                                    </Link>
-                                </div>
-                            ))}
+                            {featuredPrograms.map((program) => {
+                                const img = storageUrl(program.image);
+                                return (
+                                    <div key={program.slug} className="h-full px-3">
+                                        <Link href={`/program/${program.slug}`} className="group block bg-white border border-stone-200 p-4 h-full transition-all duration-300 hover:border-stone-400">
+                                            <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 mb-6">
+                                                {img ? (
+                                                    <img src={img} alt={program.title} className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" />
+                                                ) : (
+                                                    <div className="w-full h-full bg-gradient-to-br from-[#1F3A2B]/10 to-[#A98446]/10" />
+                                                )}
+                                            </div>
+                                            <span className="text-[10px] font-semibold tracking-widest text-[#A98446] uppercase block mb-2">{program.category}</span>
+                                            <h3 className="font-serif text-lg font-medium text-[#0F1A13] mb-3 group-hover:text-[#1F3A2B] transition-colors">{program.title}</h3>
+                                            <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed">{program.excerpt}</p>
+                                        </Link>
+                                    </div>
+                                );
+                            })}
                         </Carousel>
                     </Reveal>
                 </div>

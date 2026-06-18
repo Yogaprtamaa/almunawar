@@ -1,47 +1,43 @@
 <?php
 
-use App\Http\Controllers\Admin\ArticleController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\GalleryAlbumController;
 use App\Http\Controllers\Admin\GalleryPhotoController;
-use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\ProgramController as AdminProgramController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Public\ArticleController;
+use App\Http\Controllers\Public\GalleryController;
+use App\Http\Controllers\Public\ProgramController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-/*
-|--------------------------------------------------------------------------
-| Public site (donatur-facing) — UI prototype
-|--------------------------------------------------------------------------
-| Data is currently mocked on the front-end (resources/js/lib/mock-data.ts).
-| Replace with tenant-scoped controller props when wiring the backend.
-*/
+// ── Public ───────────────────────────────────────────────────────────────────
 
-Route::get('/', fn () => Inertia::render('welcome'))->name('home');
-
+Route::get('/', WelcomeController::class)->name('home');
 Route::get('/profil', fn () => Inertia::render('public/profil'))->name('profil');
-
-Route::get('/program', fn () => Inertia::render('public/program/index'))->name('program.index');
-Route::get('/program/{slug}', fn (string $slug) => Inertia::render('public/program/show', ['slug' => $slug]))->name('program.show');
-
-Route::get('/berita', fn () => Inertia::render('public/berita/index'))->name('berita.index');
-Route::get('/berita/{slug}', fn (string $slug) => Inertia::render('public/berita/show', ['slug' => $slug]))->name('berita.show');
-
-Route::get('/galeri', fn () => Inertia::render('public/galeri'))->name('galeri');
 Route::get('/kontak', fn () => Inertia::render('public/kontak'))->name('kontak');
 Route::get('/donasi', fn () => Inertia::render('public/donasi/index'))->name('donasi.index');
 
-/*
-|--------------------------------------------------------------------------
-| Admin / auth (starter kit defaults — kept for later)
-|--------------------------------------------------------------------------
-*/
+Route::get('/program', [ProgramController::class, 'index'])->name('program.index');
+Route::get('/program/{slug}', [ProgramController::class, 'show'])->name('program.show');
+
+Route::get('/berita', [ArticleController::class, 'index'])->name('berita.index');
+Route::get('/berita/{slug}', [ArticleController::class, 'show'])->name('berita.show');
+
+Route::get('/galeri', [GalleryController::class, 'index'])->name('galeri');
+
+// ── Auth ─────────────────────────────────────────────────────────────────────
+
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
 });
 
+// ── Admin CMS ────────────────────────────────────────────────────────────────
+
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
-    Route::resource('programs', ProgramController::class)->except('show');
-    Route::resource('articles', ArticleController::class)->except('show');
+    Route::resource('programs', AdminProgramController::class)->except('show');
+    Route::resource('articles', AdminArticleController::class)->except('show');
     Route::resource('gallery', GalleryAlbumController::class);
     Route::post('gallery/{album}/photos', [GalleryPhotoController::class, 'store'])->name('gallery.photos.store');
     Route::delete('gallery/{album}/photos/{photo}', [GalleryPhotoController::class, 'destroy'])->name('gallery.photos.destroy');
