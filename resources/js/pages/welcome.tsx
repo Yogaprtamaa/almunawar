@@ -135,8 +135,8 @@ export default function Beranda({ featuredPrograms }: { featuredPrograms: Progra
             </section>
 
             {/* ── CORE PHILOSOPHY (VALUES) ────────────────────── */}
-            <section className="mx-auto max-w-7xl px-6 py-28 lg:py-36 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                <Reveal className="lg:col-span-5 sticky top-24">
+            <section className="mx-auto max-w-7xl px-6 py-16 lg:py-36 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                <Reveal className="lg:col-span-5 lg:sticky lg:top-24">
                     <span className="text-[#A98446] text-xs font-semibold uppercase tracking-[0.2em] block mb-4">Prinsip Kami</span>
                     <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#0F1A13] tracking-tight leading-tight">
                         Mendidik dengan <br />Sepenuh Hati.
